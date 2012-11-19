@@ -12,6 +12,7 @@ PACKAGE_INSTALL += "\
 		task-maui-contents-devel \
 		libltdl-dev \
 		libgcc-s-dev \
+		libc6-dbg \
 		"
 
 DEPENDS += " task-maui-contents-devel "

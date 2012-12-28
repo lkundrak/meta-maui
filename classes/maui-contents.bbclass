@@ -14,12 +14,10 @@ PACKAGE_INSTALL += " \
 		task-maui-contents-runtime \
 		ldd \
 		libltdl7 \
-		libllvm-llvmcore \
 		"
 
 DEPENDS += "task-maui-contents-runtime makedevs-native \
 	virtual/fakeroot-native \
-	llvm \
 	"
 
 EXCLUDE_FROM_WORLD = "1"

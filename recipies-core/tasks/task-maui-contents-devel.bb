@@ -85,4 +85,5 @@ RDEPENDS += "     \
 	 cracklib-dev \
 	 e2fsprogs-dev \
 	 krb5-dev \
+	 llvm-dev \
 	 "

@@ -11,7 +11,7 @@ ALLOW_EMPTY = "1"
 
 PR = "1"
 
-DEPENDS += " linux-yocto"
+DEPENDS += " linux-maui-ostree"
 
 RDEPENDS += "\
 	 util-linux-libuuid \

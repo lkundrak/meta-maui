@@ -37,12 +37,15 @@ def maui_get_devtable_list(d):
 # task, so that we have a single fakeroot context for the whole process.
 fakeroot do_rootfs () {
         set -x
+
 	rm -rf ${IMAGE_ROOTFS}
 	rm -rf ${MULTILIB_TEMP_ROOTFS}
 	mkdir -p ${IMAGE_ROOTFS}
 	mkdir -p ${DEPLOY_DIR_IMAGE}
 
 	rootfs_${IMAGE_PKGTYPE}_do_rootfs
+
+        set -x
 
 	# Delete all of the legacy sysvinit scripts; we use systemd
 	rm -rf ${IMAGE_ROOTFS}/etc/init.d
@@ -88,8 +91,12 @@ EOF
 	echo "Extracting modules.tgz"
 	tar -x -C "${IMAGE_ROOTFS}" -z -f ${DEPLOY_DIR_IMAGE}/modules-${OSTREE_ROOTFS_KERNEL_VERSION}.tgz
 
+	# Remove all .la files
+	find ${IMAGE_ROOTFS}/lib -name \*.la -delete
+	find ${IMAGE_ROOTFS}/usr/lib -name \*.la -delete
+
 	# Undo libattr/libacl weirdness
-	rm -f ${IMAGE_ROOTFS}/lib/lib{acl,attr}.{a,la}
+	rm -f ${IMAGE_ROOTFS}/lib/lib{acl,attr}.a
 	rm -f ${IMAGE_ROOTFS}/usr/lib/lib{acl,attr}.so
 
 	# Do UsrMove for bin and sbin
@@ -128,9 +135,6 @@ EOF
 	fi
 	rmdir ${IMAGE_ROOTFS}/lib
 	ln -s usr/lib ${IMAGE_ROOTFS}/lib
-
-	# Remove all .la files
-	find ${IMAGE_ROOTFS}/usr/lib -name \*.la -delete
 
 	# And ensure systemd is /sbin/init
 	ln -s ../lib/systemd/systemd ${IMAGE_ROOTFS}/usr/sbin/init

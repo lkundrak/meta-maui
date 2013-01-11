@@ -88,6 +88,10 @@ EOF
 	echo "Extracting modules.tgz"
 	tar -x -C "${IMAGE_ROOTFS}" -z -f ${DEPLOY_DIR_IMAGE}/modules-${OSTREE_ROOTFS_KERNEL_VERSION}.tgz
 
+	# Undo libattr/libacl weirdness
+	rm -f ${IMAGE_ROOTFS}/lib/lib{acl,attr}.{a,la}
+	rm -f ${IMAGE_ROOTFS}/usr/lib/lib{acl,attr}.so
+
 	# Do UsrMove for bin and sbin
 	mv ${IMAGE_ROOTFS}/bin/* ${IMAGE_ROOTFS}/usr/bin
 	if test -d ${IMAGE_ROOTFS}/bin/.debug; then
@@ -114,10 +118,6 @@ EOF
 		ln -sf $fixed_target $f
 	    done
 	done
-
-	# Undo libattr/libacl weirdness
-	rm -f ${IMAGE_ROOTFS}/lib/lib{acl,attr}.{a,la}
-	rm -f ${IMAGE_ROOTFS}/usr/lib/lib{acl,attr}.so
 
 	# Complete UsrMove for lib
 	mv ${IMAGE_ROOTFS}/lib/* ${IMAGE_ROOTFS}/usr/lib

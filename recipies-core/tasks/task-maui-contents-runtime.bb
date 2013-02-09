@@ -100,4 +100,5 @@ RDEPENDS += "\
 	 module-init-tools \
 	 nss-altfiles \
 	 llvm \
+	 parted \
 	 "

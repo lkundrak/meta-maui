@@ -27,8 +27,6 @@ RDEPENDS += "     \
 	 g++ \
 	 g++-symlinks \
 	 gettext \
-	 gettext-runtime \
-	 gettext-devel \
 	 make \
 	 intltool \
 	 libtool \

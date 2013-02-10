@@ -101,5 +101,4 @@ RDEPENDS += "\
 	 nss-altfiles \
 	 llvm \
 	 rsync \
-	 parted \
 	 "

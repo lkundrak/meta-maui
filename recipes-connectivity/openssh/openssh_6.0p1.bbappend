@@ -10,3 +10,8 @@ do_install_append () {
 		install -m 0644 ${WORKDIR}/${file} ${D}${libdir}/systemd/system
 	done
 }
+
+FILES_${PN}-sshd += "${libdir}/systemd/system/sshd.service"
+FILES_${PN}-sshd += "${libdir}/systemd/system/sshd@.service"
+FILES_${PN}-sshd += "${libdir}/systemd/system/sshd.socket"
+FILES_${PN}-keygen += "${libdir}/systemd/system/sshdgenkeys.service"

@@ -14,6 +14,7 @@ PR = "3"
 RDEPENDS += "     \
 	 autoconf \
 	 automake \
+	 bc \
 	 binutils \
 	 binutils-symlinks \
 	 coreutils \
@@ -26,6 +27,8 @@ RDEPENDS += "     \
 	 g++ \
 	 g++-symlinks \
 	 gettext \
+	 gettext-runtime \
+	 gettext-devel \
 	 make \
 	 intltool \
 	 libtool \

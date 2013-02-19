@@ -11,11 +11,11 @@ SRC_URI += " file://config-generic \
 	     file://config-x86-generic \
 	     "
 
-LINUX_VERSION ?= "3.8-rc7"
+LINUX_VERSION ?= "3.8.0"
 LINUX_VERSION_EXTENSION ?= "-maui-ostree"
 
-# tag: v3.8-rc7
-SRCREV="836dc9e3fbbab0c30aa6e664417225f5c1fb1c39"
+# tag: v3.8
+SRCREV="19f949f52599ba7c3f67a5897ac6be14bfcb1200"
 
 S = "${WORKDIR}/git"
 

@@ -59,6 +59,7 @@ RDEPENDS += "\
 	 libogg \
 	 libvorbis \
 	 speex \
+	 nspr \
 	 cpio \
 	 libatomics-ops \
 	 alsa-lib \

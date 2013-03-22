@@ -29,6 +29,7 @@ RDEPENDS += "     \
 	 gettext \
 	 make \
 	 intltool \
+	 texinfo \
 	 libtool \
 	 libtool-dev \
 	 perl-module-re \

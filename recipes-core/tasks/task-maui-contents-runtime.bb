@@ -102,5 +102,6 @@ RDEPENDS += "\
 	 nss-altfiles \
 	 llvm \
 	 sqlite3 libsqlite3 \
+	 expat \
 	 rsync \
 	 "

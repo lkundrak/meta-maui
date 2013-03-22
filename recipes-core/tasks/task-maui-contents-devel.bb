@@ -47,6 +47,7 @@ RDEPENDS += "     \
 	 zip \
 	 ruby \
 	 llvm-dev \
+	 expat-dev \
 	 libxml-parser-perl \
 	 gettext-dev \
 	 libpci-dev \

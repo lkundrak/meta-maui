@@ -82,6 +82,8 @@ RDEPENDS += "     \
 	 libgcrypt-dev \
 	 libattr-dev \
 	 libacl-dev \
+	 libselinux-dev \
+	 checkpolicy \
 	 gnutls-dev \
 	 icu-dev \
 	 curl-dev \

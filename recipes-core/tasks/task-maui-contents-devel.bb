@@ -49,6 +49,7 @@ RDEPENDS += "     \
 	 llvm-dev \
 	 libsqlite3-dev \
 	 expat-dev \
+	 intltool \
 	 libxml-parser-perl \
 	 gettext-dev \
 	 libpci-dev \

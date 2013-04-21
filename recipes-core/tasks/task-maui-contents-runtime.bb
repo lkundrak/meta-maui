@@ -88,6 +88,7 @@ RDEPENDS += "\
 	 libpam \
 	 attr \
 	 acl \
+	 libselinux \
 	 bzip2 \
 	 xz \
 	 ncurses \

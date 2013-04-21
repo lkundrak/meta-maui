@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=3f40d7994397109285ec7b81fdeb3
 
 inherit rootfs_${IMAGE_PKGTYPE}
 
-OSTREE_ROOTFS_KERNEL_VERSION = "3.8.6-maui-ostree"
+OSTREE_ROOTFS_KERNEL_VERSION = "3.8.8-maui-ostree"
 
 do_rootfs[depends] += "linux-maui-ostree:do_deploy"
 

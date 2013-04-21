@@ -20,6 +20,11 @@ LINUX_VERSION_EXTENSION ?= "-maui-ostree"
 # tag: v3.8.8
 SRCREV="2396403a0402caf7b9decbc5d206fa63ba62b6b7"
 
+#
+# WARNING: Don't forget to edit meta-maui/classes/maui-contents.bbclass
+#          when changing kernel version
+#
+
 S = "${WORKDIR}/git"
 
 PR = "r1"

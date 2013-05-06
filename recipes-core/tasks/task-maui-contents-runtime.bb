@@ -59,7 +59,6 @@ RDEPENDS += "\
 	 libogg \
 	 libvorbis \
 	 speex \
-	 nspr \
 	 cpio \
 	 libatomics-ops \
 	 alsa-lib \
@@ -89,11 +88,13 @@ RDEPENDS += "\
 	 attr \
 	 acl \
 	 libselinux \
+	 policycoreutils \
 	 bzip2 \
 	 xz \
 	 ncurses \
 	 libvorbis \
 	 speex \
+	 nspr \
 	 python-modules \
 	 python-misc \
 	 openssh \

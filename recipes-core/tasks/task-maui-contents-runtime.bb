@@ -106,6 +106,7 @@ RDEPENDS += "\
 	 sqlite3 libsqlite3 \
 	 expat \
 	 rsync \
+	 iputils \
 	 syslinux-extlinux \
 	 syslinux-mbr \
 	 syslinux-misc \

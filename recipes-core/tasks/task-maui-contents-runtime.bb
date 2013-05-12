@@ -49,7 +49,7 @@ RDEPENDS += "\
 	 util-linux-mount \
 	 util-linux-agetty \
 	 dejavu-fonts-ttf \
-	 cantarell-fonts-ttf \
+	 cantarell-fonts \
 	 kbd \
 	 kbd-consolefonts \
 	 kbd-keymaps \

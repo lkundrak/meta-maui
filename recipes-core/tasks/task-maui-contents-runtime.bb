@@ -49,6 +49,7 @@ RDEPENDS += "\
 	 util-linux-mount \
 	 util-linux-agetty \
 	 dejavu-fonts-ttf \
+	 cantarell-fonts-ttf \
 	 kbd \
 	 kbd-consolefonts \
 	 kbd-keymaps \
@@ -99,7 +100,6 @@ RDEPENDS += "\
 	 python-misc \
 	 openssh \
 	 krb5 \
-	 dejavu-fonts-ttf \
 	 module-init-tools \
 	 nss-altfiles \
 	 llvm \

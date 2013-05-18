@@ -108,6 +108,7 @@ RDEPENDS += "\
 	 rsync \
 	 iputils \
 	 syslinux-extlinux \
+	 syslinux-isolinux \
 	 syslinux-mbr \
 	 syslinux-misc \
 	 "

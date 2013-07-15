@@ -186,6 +186,13 @@ EOF
 
 	ln -s sysroot/ostree ostree
 
+	# Preserve /opt, /srv across upgrades by making /opt and /srv symlinks
+	# to /var/opt and /var/srv, respectively.
+	# Both /var/opt and /var/srv are created empty, thus they can be
+	# mountpoints for other partitions or whatever the administrators want.
+	ln -s var/opt opt
+	ln -s var/srv srv
+
 	for d in $READONLY_BIND_MOUNTS; do
             mv ${IMAGE_ROOTFS}/$d .
 	done

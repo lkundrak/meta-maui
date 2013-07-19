@@ -35,3 +35,6 @@ fc-cache
 
 PACKAGES = "${PN}"
 FILES_${PN} += "${sysconfdir} ${datadir}"
+
+SRC_URI[md5sum] = "6011af6f0a0a5ebdd1e35691ab346401"
+SRC_URI[sha256sum] = "3d509e1117dd92a6b80ef8b2586c89e178dc21a03c7c61f5c50772def5c4934b"

@@ -168,7 +168,7 @@ EOF
 	ln -s bin ${IMAGE_ROOTFS}/usr/sbin
 
 	# And ensure systemd is /sbin/init
-	ln -s ../lib/systemd/systemd ${IMAGE_ROOTFS}/usr/sbin/init
+	ln -s ../lib/systemd/systemd ${IMAGE_ROOTFS}/usr/bin/init
 	ln -s systemctl ${IMAGE_ROOTFS}/usr/bin/halt
 	ln -s systemctl ${IMAGE_ROOTFS}/usr/bin/poweroff
 	ln -s systemctl ${IMAGE_ROOTFS}/usr/bin/reboot
@@ -176,39 +176,60 @@ EOF
 	ln -s systemctl ${IMAGE_ROOTFS}/usr/bin/shutdown
 	ln -s systemctl ${IMAGE_ROOTFS}/usr/bin/telinit
 
-	TOPROOT_BIND_MOUNTS="home root tmp"
-	OSTREE_BIND_MOUNTS="var"
-	OSDIRS="dev proc mnt media run sys sysroot"
-	READONLY_BIND_MOUNTS="boot bin etc lib sbin usr"
-	
-	rm -rf ${WORKDIR}/maui-contents
-	mkdir ${WORKDIR}/maui-contents
-        cd ${WORKDIR}/maui-contents
-	for d in $TOPROOT_BIND_MOUNTS $OSTREE_BIND_MOUNTS $OSDIRS; do
+	rm -rf ${WORKDIR}/contents
+	mkdir ${WORKDIR}/contents
+	cd ${WORKDIR}/contents
+
+	# The default toplevel directories used as mount targets
+	for d in dev proc run sys var; do
 	    mkdir $d
 	done
 
-	ln -s sysroot/ostree ostree
+	# Special ostree mount
+	mkdir sysroot
 
-	# Preserve /opt, /srv across upgrades by making /opt and /srv symlinks
-	# to /var/opt and /var/srv, respectively.
-	# Both /var/opt and /var/srv are created empty, thus they can be
-	# mountpoints for other partitions or whatever the administrators want.
+	# Some FHS targets; these all live in /var hence are preserved
+	# across upgrade
 	ln -s var/opt opt
 	ln -s var/srv srv
+	ln -s var/mnt mnt
+	ln -s var/roothome root
 
-	for d in $READONLY_BIND_MOUNTS; do
-            mv ${IMAGE_ROOTFS}/$d .
+	# This one is dynamic, so just lives in /run
+	ln -s run/media media
+
+	# Special OSTree link, so it's /ostree both on
+	# the real disk and inside the chroot
+	ln -s sysroot/ostree ostree
+
+	# /tmp is always /sysroot/tmp
+	ln -s sysroot/tmp tmp
+
+	# By default, /home -> var/home -> ../sysroot/home
+	ln -s var/home home
+
+	# These are the only directories we take from the OE build
+	mv ${IMAGE_ROOTFS}/usr .
+	mv ${IMAGE_ROOTFS}/etc .
+	mv ${IMAGE_ROOTFS}/boot .
+	# Except /usr/local -> ../var/usrlocal
+	rm -rf usr/local
+	ln -s ../var/usrlocal usr/local
+
+	# Also move the toplevel compat links
+	mv ${IMAGE_ROOTFS}/lib .
+	mv ${IMAGE_ROOTFS}/bin .
+	mv ${IMAGE_ROOTFS}/sbin .
+
+	# Ok, let's globally fix permissions in the OE content;
+	# everything is root owned, all directories are u=rwx,g=rx,og=rx.
+	chown -R -h 0:0 usr etc boot
+	for x in usr etc boot; do
+		find $x  -type d -exec chmod u=rwx,g=rx,og=rx "{}" \;
 	done
-	rm -rf ${IMAGE_ROOTFS}
-	mv ${WORKDIR}/maui-contents ${IMAGE_ROOTFS}
 
-	# Ok, let's globally fix permissions; everything is root owned,
-	# all directories are u=rwx,og=rx, except for /root, and /tmp is sticky
-	chown -R -h 0:0 ${IMAGE_ROOTFS}
-	find ${IMAGE_ROOTFS} -type d -exec chmod u=rwx,og=rx "{}" \;
-	chmod a=rwxt ${IMAGE_ROOTFS}/tmp
-	chmod go-rwx ${IMAGE_ROOTFS}/root
+	rm -rf ${IMAGE_ROOTFS}
+	mv ${WORKDIR}/contents ${IMAGE_ROOTFS}
 
 	IMAGE_NAME_NODATE=${IMAGE_BASENAME}-${MACHINE}.tar.gz
 	DEST=${WORKDIR}/${IMAGE_NAME_NODATE}

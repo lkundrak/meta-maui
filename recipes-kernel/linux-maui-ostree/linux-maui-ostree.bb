@@ -28,7 +28,8 @@ SRCREV="cb5d8be972cfbea114ea56fd63ed5ce1644863df"
 S = "${WORKDIR}/git"
 
 PR = "r1"
-PV = "${LINUX_VERSION}+git${SRCPV}"
+#PV = "${LINUX_VERSION}+git${SRCPV}"
+PV = "${LINUX_VERSION}"
 
 # Override COMPATIBLE_MACHINE to include your machine in a bbappend
 # file. Leaving it empty here ensures an early explicit build failure.

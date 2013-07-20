@@ -163,6 +163,12 @@ EOF
 
 	# And ensure systemd is /sbin/init
 	ln -s ../lib/systemd/systemd ${IMAGE_ROOTFS}/usr/sbin/init
+	ln -s systemctl ${IMAGE_ROOTFS}/usr/bin/halt
+	ln -s systemctl ${IMAGE_ROOTFS}/usr/bin/poweroff
+	ln -s systemctl ${IMAGE_ROOTFS}/usr/bin/reboot
+	ln -s systemctl ${IMAGE_ROOTFS}/usr/bin/runlevel
+	ln -s systemctl ${IMAGE_ROOTFS}/usr/bin/shutdown
+	ln -s systemctl ${IMAGE_ROOTFS}/usr/bin/telinit
 
 	TOPROOT_BIND_MOUNTS="home root tmp"
 	OSTREE_BIND_MOUNTS="var"

@@ -102,22 +102,16 @@ EOF
 	ln -s ../usr/share/zoneinfo/Europe/London ${IMAGE_ROOTFS}/etc/localtime
 	echo LANG=\"en_US.UTF-8\" > ${IMAGE_ROOTFS}/etc/locale.conf
 
-	# Remove all .la files
-	find ${IMAGE_ROOTFS}/lib -name \*.la -delete
-	find ${IMAGE_ROOTFS}/usr/lib -name \*.la -delete
-
-	# Undo libattr/libacl weirdness
-	rm -f ${IMAGE_ROOTFS}/lib/lib{acl,attr}.a
-	rm -f ${IMAGE_ROOTFS}/usr/lib/lib{acl,attr}.so
-
-	# Remove getopt symlink first; util-linux creates /usr/bin/getopt
-	# and /bin/getopt the latter being a symlink to the former, if we
-	# mv /bin contents over /usr/bin we'll end up with a /usr/bin/getopt
-	# symlink pointing to itself
-	rm -f ${IMAGE_ROOTFS}/bin/getopt
-
 	# Do UsrMove for bin and sbin
-	mv ${IMAGE_ROOTFS}/bin/* ${IMAGE_ROOTFS}/usr/bin
+	cd ${IMAGE_ROOTFS}/bin
+	for x in *; do
+		if test -L ${x} && test -x ../usr/bin/${x}; then
+			rm ${x}
+		else
+			mv ${x} ../usr/bin/${x}
+		fi
+	done
+	cd -
 	if test -d ${IMAGE_ROOTFS}/bin/.debug; then
 	  mkdir -p ${IMAGE_ROOTFS}/usr/bin/.debug
 	  mv ${IMAGE_ROOTFS}/bin/.debug/* ${IMAGE_ROOTFS}/usr/bin/.debug
@@ -143,6 +137,10 @@ EOF
 	    done
 	done
 
+	# Undo libattr/libacl weirdness
+	rm -f ${IMAGE_ROOTFS}/lib/lib{acl,attr}.a
+	rm -f ${IMAGE_ROOTFS}/usr/lib/lib{acl,attr}.so
+
 	# Complete UsrMove for lib
 	mv ${IMAGE_ROOTFS}/lib/* ${IMAGE_ROOTFS}/usr/lib
 	if test -d ${IMAGE_ROOTFS}/lib/.debug; then
@@ -153,19 +151,26 @@ EOF
 	rmdir ${IMAGE_ROOTFS}/lib
 	ln -s usr/lib ${IMAGE_ROOTFS}/lib
 
-	# And now let's take the next logical step, merge /usr/sbin
-	# into /usr/bin.  Rusty Russell will be overjoyed:
-	# http://rusty.ozlabs.org/?p=236
+	# And now merge /usr/sbin into /usr/bin
 	if test -d ${IMAGE_ROOTFS}/usr/sbin/.debug; then
 		mkdir -p ${IMAGE_ROOTFS}/usr/bin/.debug
 		mv ${IMAGE_ROOTFS}/usr/sbin/.debug/* ${IMAGE_ROOTFS}/usr/bin/.debug
 		rmdir ${IMAGE_ROOTFS}/usr/sbin/.debug
 	fi
-	for x in ${IMAGE_ROOTFS}/usr/sbin/*; do
-		mv ${x} ${IMAGE_ROOTFS}/usr/bin
+	cd ${IMAGE_ROOTFS}/usr/sbin
+	for x in *; do
+		if test -L ${x} && test -x ../bin/${x}; then
+			rm ${x}
+		else
+			mv ${x} ../bin
+		fi
 	done
+	cd -
 	rmdir ${IMAGE_ROOTFS}/usr/sbin
 	ln -s bin ${IMAGE_ROOTFS}/usr/sbin
+
+	# Remove all .la files
+	find ${IMAGE_ROOTFS}/usr/lib -name \*.la -delete
 
 	# And ensure systemd is /sbin/init
 	ln -s ../lib/systemd/systemd ${IMAGE_ROOTFS}/usr/bin/init

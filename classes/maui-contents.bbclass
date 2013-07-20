@@ -9,6 +9,7 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=3f40d7994397109285ec7b81fdeb3
 inherit rootfs_${IMAGE_PKGTYPE}
 
 OSTREE_ROOTFS_KERNEL_VERSION = "3.10.1-maui-ostree"
+OSTREE_ROOTFS_KERNEL_PR = "r1"
 
 do_rootfs[depends] += "linux-maui-ostree:do_deploy"
 
@@ -106,9 +107,10 @@ EOF
 
 	# Do the kernel and modules
 	mkdir -p ${IMAGE_ROOTFS}/boot
-	cp -p ${DEPLOY_DIR_IMAGE}/bzImage-${OSTREE_ROOTFS_KERNEL_VERSION} ${IMAGE_ROOTFS}/boot/vmlinuz-${OSTREE_ROOTFS_KERNEL_VERSION}
-	echo "Extracting modules.tgz"
-	tar -x -C "${IMAGE_ROOTFS}" -z -f ${DEPLOY_DIR_IMAGE}/modules-${OSTREE_ROOTFS_KERNEL_VERSION}.tgz
+	bzImage=$(readlink -f ${DEPLOY_DIR_IMAGE}/bzImage-${MACHINE}.bin)
+	cp -p ${bzImage} ${IMAGE_ROOTFS}/boot/vmlinuz-${OSTREE_ROOTFS_KERNEL_VERSION}
+	echo "Extracting modules.tgz..."
+	tar -x -C "${IMAGE_ROOTFS}" -z -f ${DEPLOY_DIR_IMAGE}/modules-${OSTREE_ROOTFS_KERNEL_VERSION}-${OSTREE_ROOTFS_KERNEL_PR}-${MACHINE}.tgz
 
 	# Remove all .la files
 	find ${IMAGE_ROOTFS}/lib -name \*.la -delete

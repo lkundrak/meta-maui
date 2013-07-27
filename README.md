@@ -10,11 +10,11 @@ This layer depends on:
 
 * **poky**
   * **URI:** git://git.yoctoproject.org/poky
-  * **branch:** danny
+  * **branch:** dylan
   * **revision:** HEAD
 * **meta-selinux**
   * **URI:** git://git.yoctoproject.org/meta-selinux
-  * **branch:** danny
+  * **branch:** dylan
   * **revision:** HEAD
 
 Send pull requests following [GitHub instructions](https://help.github.com/articles/using-pull-requests),

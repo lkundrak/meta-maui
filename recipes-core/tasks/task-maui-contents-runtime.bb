@@ -11,7 +11,7 @@ ALLOW_EMPTY = "1"
 
 PR = "1"
 
-DEPENDS += " linux-maui-ostree"
+DEPENDS += " linux-maui"
 
 RDEPENDS += "\
 	 util-linux-libuuid \

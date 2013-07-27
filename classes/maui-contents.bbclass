@@ -8,10 +8,10 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=3f40d7994397109285ec7b81fdeb3
 
 inherit rootfs_${IMAGE_PKGTYPE}
 
-OSTREE_ROOTFS_KERNEL_VERSION = "3.10.1-maui-ostree"
+OSTREE_ROOTFS_KERNEL_VERSION = "3.10.1-maui"
 OSTREE_ROOTFS_KERNEL_PR = "r1"
 
-do_rootfs[depends] += "linux-maui-ostree:do_deploy"
+do_rootfs[depends] += "linux-maui:do_deploy"
 
 PACKAGE_INSTALL += " \
 		task-maui-contents-runtime \

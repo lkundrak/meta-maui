@@ -15,7 +15,7 @@ SRC_URI += " file://config-generic \
 	     "
 
 LINUX_VERSION ?= "3.10.1"
-LINUX_VERSION_EXTENSION ?= "-maui-ostree"
+LINUX_VERSION_EXTENSION ?= "-maui"
 
 # tag: v3.10.1
 SRCREV="cb5d8be972cfbea114ea56fd63ed5ce1644863df"

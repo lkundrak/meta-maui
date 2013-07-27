@@ -24,7 +24,7 @@ CFLAGS_append += "-DDESTRUCTOR_ATTR_WORKS=1 -I${STAGING_INCDIR}/et"
 LDFLAGS_append += "-lpthread"
 
 FILES_${PN}-doc += "/usr/share/examples"
-FILES_${PN}-dbg = "${libdir}/krb5/plugins/{kdb,preauth}/.debug/*.so.*"
+FILES_${PN}-dbg += "${libdir}/krb5/plugins/*/.debug"
 
 krb5_do_unpack() {
        tar xzf ${WORKDIR}/krb5-1.8.5.tar.gz -C ${WORKDIR}/

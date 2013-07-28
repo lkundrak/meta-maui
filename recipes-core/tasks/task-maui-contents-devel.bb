@@ -41,13 +41,13 @@ RDEPENDS_${PN} += "\
 	 elfutils \
 	 valgrind \
 	 python-dev \
+	 ruby-dev \
 	 libffi-dev \
 	 bison flex \
 	 libpcre-dev \
 	 git \
 	 gdb \
 	 zip \
-	 ruby \
 	 llvm-dev \
 	 libsqlite3-dev \
 	 expat-dev \

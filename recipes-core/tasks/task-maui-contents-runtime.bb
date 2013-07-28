@@ -117,6 +117,7 @@ RDEPENDS_${PN} += "\
 	 nspr \
 	 python-modules \
 	 python-misc \
+	 ruby \
 	 openssh \
 	 krb5 \
 	 module-init-tools \

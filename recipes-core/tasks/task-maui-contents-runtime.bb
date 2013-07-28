@@ -74,7 +74,6 @@ RDEPENDS_${PN} += "\
 	 pciutils \
 	 base-files \
 	 base-passwd \
-	 busybox \
 	 update-alternatives-cworth \
 	 coreutils \
 	 sed \

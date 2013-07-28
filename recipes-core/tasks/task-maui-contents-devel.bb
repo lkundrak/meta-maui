@@ -95,4 +95,5 @@ RDEPENDS_${PN} += "\
 	 e2fsprogs-dev \
 	 krb5-dev \
 	 llvm-dev \
+	 fontconfig-dev freetype-dev \
 	 "

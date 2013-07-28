@@ -51,6 +51,7 @@ RDEPENDS_${PN} += "\
 	 cpio \
 	 util-linux-mount \
 	 util-linux-agetty \
+	 fontconfig-utils \
 	 dejavu-fonts-ttf \
 	 cantarell-fonts \
 	 kbd \

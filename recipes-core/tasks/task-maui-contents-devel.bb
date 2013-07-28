@@ -36,7 +36,6 @@ RDEPENDS_${PN} += "\
 	 perl-module-text-wrap \
 	 pkgconfig \
 	 findutils \
-	 less \
 	 ldd \
 	 file \
 	 elfutils \

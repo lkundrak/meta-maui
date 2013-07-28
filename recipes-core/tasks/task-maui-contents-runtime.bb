@@ -49,6 +49,7 @@ RDEPENDS_${PN} += "\
 	 pam-plugin-permit \
 	 pam-plugin-nologin \
 	 ncurses-terminfo-base \
+	 less \
 	 cpio \
 	 libpcre \
 	 util-linux-mount \

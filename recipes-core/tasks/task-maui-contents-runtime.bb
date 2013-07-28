@@ -14,6 +14,7 @@ PR = "1"
 DEPENDS += " linux-maui"
 
 RDEPENDS_${PN} += "\
+	 kernel-image kernel-modules \
 	 util-linux-libuuid \
 	 util-linux-blkid \
 	 e2fsprogs-e2fsck \

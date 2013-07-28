@@ -16,6 +16,10 @@ This layer depends on:
   * **URI:** git://git.yoctoproject.org/meta-selinux
   * **branch:** dylan
   * **revision:** HEAD
+* **meta-oe**
+  * **URI:** git://github.com/openembedded/meta-oe.git
+  * **branch:** dylan
+  * **revision:** HEAD
 
 Send pull requests following [GitHub instructions](https://help.github.com/articles/using-pull-requests),
 comments or questions to the [development mailing list](https://groups.google.com/d/forum/maui-development)

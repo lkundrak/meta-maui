@@ -77,9 +77,6 @@ EOF
 ::1		localhost6 ip6-localhost
 EOF
 
-	# Ensure we're set up for systemd
-        echo "session optional pam_systemd.so" >> ${IMAGE_ROOTFS}/etc/pam.d/common-session 
-
 	# Remove su because we only support pkexec
 	cat > ${IMAGE_ROOTFS}/bin/su <<EOF
 #!/bin/sh

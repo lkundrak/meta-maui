@@ -26,6 +26,7 @@ RDEPENDS_${PN} += "\
 	 pciutils \
 	 tiff \
 	 jpeg \
+	 libpng \
 	 libexif \
 	 libstdc++ \
 	 gnutls \

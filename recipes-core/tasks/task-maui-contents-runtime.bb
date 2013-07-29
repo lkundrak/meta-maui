@@ -85,6 +85,8 @@ RDEPENDS_${PN} += "\
 	 strace \
 	 lsof \
 	 bash \
+	 which \
+	 time \
 	 tar \
 	 grep \
 	 gawk \

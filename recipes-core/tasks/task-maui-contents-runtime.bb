@@ -50,6 +50,7 @@ RDEPENDS_${PN} += "\
 	 pam-plugin-nologin \
 	 ncurses-terminfo-base \
 	 less \
+	 nano \
 	 cpio \
 	 libpcre \
 	 util-linux-mount \

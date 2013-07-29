@@ -83,6 +83,7 @@ RDEPENDS_${PN} += "\
 	 sed \
 	 findutils \
 	 strace \
+	 lsof \
 	 bash \
 	 tar \
 	 grep \

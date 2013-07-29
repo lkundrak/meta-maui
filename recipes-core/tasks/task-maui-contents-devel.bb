@@ -43,7 +43,8 @@ RDEPENDS_${PN} += "\
 	 python-dev \
 	 ruby-dev \
 	 libffi-dev \
-	 bison flex \
+	 bison bison-dev bison-staticdev \
+	 flex flex-dev flex-staticdev \
 	 libpcre-dev \
 	 git \
 	 gdb \

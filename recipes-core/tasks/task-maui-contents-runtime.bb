@@ -128,6 +128,7 @@ RDEPENDS_${PN} += "\
 	 expat \
 	 rsync \
 	 iputils \
+	 ntfs-3g ntfsprogs \
 	 syslinux-extlinux \
 	 syslinux-isolinux \
 	 syslinux-mbr \

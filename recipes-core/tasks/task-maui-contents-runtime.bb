@@ -58,6 +58,8 @@ RDEPENDS_${PN} += "\
 	 util-linux-agetty \
 	 fontconfig-utils \
 	 ttf-dejavu-sans ttf-dejavu-sans-mono ttf-dejavu-sans-condensed ttf-dejavu-serif ttf-dejavu-serif-condensed \
+	 ttf-ubuntu-mono ttf-ubuntu-sans \
+	 ttf-droid-sans ttf-droid-sans-mono ttf-droid-sans-fallback ttf-droid-sans-japanese ttf-droid-serif \
 	 cantarell-fonts \
 	 kbd \
 	 kbd-consolefonts \

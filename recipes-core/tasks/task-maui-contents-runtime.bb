@@ -83,6 +83,7 @@ RDEPENDS_${PN} += "\
 	 sed \
 	 findutils \
 	 strace \
+	 ltrace \
 	 lsof \
 	 bash \
 	 which \

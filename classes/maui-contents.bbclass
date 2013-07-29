@@ -46,6 +46,9 @@ fakeroot do_rootfs () {
 
         set -x
 
+	# Delete all rpm files and directories
+	rm -rf ${IMAGE_ROOTFS}/etc/rpm{,-postinsts}
+
 	# Delete all of the legacy sysvinit scripts; we use systemd
 	rm -rf ${IMAGE_ROOTFS}/etc/init.d
 	rm -rf ${IMAGE_ROOTFS}/etc/rc*.d

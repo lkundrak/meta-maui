@@ -51,6 +51,7 @@ RDEPENDS_${PN} += "\
 	 ncurses-terminfo-base \
 	 less \
 	 nano \
+	 vim-syntax vim-data vim-vimrc \
 	 cpio \
 	 libpcre \
 	 util-linux-mount \

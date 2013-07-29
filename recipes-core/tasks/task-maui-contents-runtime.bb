@@ -93,6 +93,7 @@ RDEPENDS_${PN} += "\
 	 gzip \
 	 less \
 	 util-linux \
+	 parted \
 	 curl \
 	 tzdata \
 	 tzdata-africa \

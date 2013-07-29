@@ -14,7 +14,7 @@ SRC_URI = "http://download.gnome.org/sources/${PN}/0.0/${PN}-${PV}.tar.xz \
            file://21-cantarell-hinting.conf"
 
 do_configure() {
-	./configure --prefix=${prefix} --with-configdir=${sysconfdir}/fonts/conf.d --disable-source-rebuild
+	./configure --prefix=${prefix} --with-fontdir=${datadir}/fonts/truetype --with-configdir=${sysconfdir}/fonts/conf.d --disable-source-rebuild
 }
 
 do_compile() {

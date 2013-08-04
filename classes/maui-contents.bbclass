@@ -14,7 +14,7 @@ PACKAGE_INSTALL += " \
 		task-maui-contents-runtime \
 		ldd \
 		libltdl7 \
-		libicule50 \
+		libicule51 \
 		"
 
 DEPENDS += "task-maui-contents-runtime makedevs-native \

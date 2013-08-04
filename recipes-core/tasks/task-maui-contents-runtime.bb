@@ -33,6 +33,7 @@ RDEPENDS_${PN} += "\
 	 libogg \
 	 libssp \
 	 libxml2 \
+	 libxslt \
 	 eglibc-gconvs \
 	 eglibc-binaries \
 	 eglibc-localedatas \

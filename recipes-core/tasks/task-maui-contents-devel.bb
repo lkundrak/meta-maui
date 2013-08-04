@@ -52,6 +52,7 @@ RDEPENDS_${PN} += "\
 	 llvm-dev \
 	 libsqlite3-dev \
 	 expat-dev \
+	 libxml2-dev \
 	 intltool \
 	 libxml-parser-perl \
 	 gettext-dev \

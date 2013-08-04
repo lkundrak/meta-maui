@@ -10,15 +10,15 @@ This layer depends on:
 
 * **poky**
   * **URI:** git://git.yoctoproject.org/poky
-  * **branch:** dylan
+  * **branch:** master
   * **revision:** HEAD
 * **meta-selinux**
   * **URI:** git://git.yoctoproject.org/meta-selinux
-  * **branch:** dylan
+  * **branch:** master
   * **revision:** HEAD
 * **meta-oe**
   * **URI:** git://github.com/openembedded/meta-oe.git
-  * **branch:** dylan
+  * **branch:** master
   * **revision:** HEAD
 
 Send pull requests following [GitHub instructions](https://help.github.com/articles/using-pull-requests),

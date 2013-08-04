@@ -128,6 +128,7 @@ RDEPENDS_${PN} += "\
 	 ruby \
 	 openssh \
 	 krb5 \
+	 popt \
 	 module-init-tools \
 	 nss-altfiles \
 	 llvm \

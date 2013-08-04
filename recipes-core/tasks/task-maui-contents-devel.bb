@@ -96,6 +96,7 @@ RDEPENDS_${PN} += "\
 	 cracklib-dev \
 	 e2fsprogs-dev \
 	 krb5-dev \
+	 popt-dev \
 	 llvm-dev \
 	 fontconfig-dev freetype-dev \
 	 "

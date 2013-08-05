@@ -86,6 +86,7 @@ RDEPENDS_${PN} += "\
 	 inetutils-ping6 \
 	 inetutils-hostname \
 	 inetutils-traceroute \
+	 bridge-utils \
 	 sed \
 	 findutils \
 	 strace \

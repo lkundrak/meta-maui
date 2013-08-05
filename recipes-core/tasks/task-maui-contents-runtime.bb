@@ -82,6 +82,10 @@ RDEPENDS_${PN} += "\
 	 base-passwd \
 	 update-alternatives-cworth \
 	 coreutils \
+	 inetutils-ping \
+	 inetutils-ping6 \
+	 inetutils-hostname \
+	 inetutils-traceroute \
 	 sed \
 	 findutils \
 	 strace \

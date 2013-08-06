@@ -22,6 +22,7 @@ RDEPENDS_${PN} += "\
 	 cpp-symlinks \
 	 ccache \
 	 diffutils \
+	 patch \
 	 gcc \
 	 gcc-symlinks \
 	 g++ \

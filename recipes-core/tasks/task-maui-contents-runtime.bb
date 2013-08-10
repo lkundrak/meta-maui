@@ -15,8 +15,11 @@ DEPENDS += " linux-maui"
 
 RDEPENDS_${PN} += "\
 	 kernel-image kernel-modules \
+	 util-linux \
 	 util-linux-libuuid \
 	 util-linux-blkid \
+	 util-linux-mount \
+	 util-linux-agetty \
 	 e2fsprogs-e2fsck \
 	 e2fsprogs-mke2fs \
 	 e2fsprogs-tune2fs \
@@ -54,8 +57,6 @@ RDEPENDS_${PN} += "\
 	 vim-syntax vim-data vim-vimrc \
 	 cpio \
 	 libpcre \
-	 util-linux-mount \
-	 util-linux-agetty \
 	 fontconfig-utils \
 	 ttf-dejavu-sans ttf-dejavu-sans-mono ttf-dejavu-sans-condensed ttf-dejavu-serif ttf-dejavu-serif-condensed \
 	 ttf-ubuntu-mono ttf-ubuntu-sans \
@@ -98,7 +99,6 @@ RDEPENDS_${PN} += "\
 	 gawk \
 	 gzip \
 	 less \
-	 util-linux \
 	 parted \
 	 curl \
 	 tzdata \

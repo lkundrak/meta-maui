@@ -110,6 +110,12 @@ EOF
 	rm -f ${IMAGE_ROOTFS}/lib/lib{acl,attr}.a
 	rm -f ${IMAGE_ROOTFS}/usr/lib/lib{acl,attr}.so
 
+	# Remove getopt symlink first; util-linux creates /usr/bin/getopt
+	# and /bin/getopt the latter being a symlink to the former, if we
+	# mv /bin contents over /usr/bin we'll end up with a /usr/bin/getopt
+	# symlink pointing to itself
+	rm -f ${IMAGE_ROOTFS}/bin/getopt
+
 	# Do UsrMove for bin and sbin
 	mv ${IMAGE_ROOTFS}/bin/* ${IMAGE_ROOTFS}/usr/bin
 	if test -d ${IMAGE_ROOTFS}/bin/.debug; then

@@ -63,7 +63,7 @@ RDEPENDS_${PN} += "\
 	 zlib-dev \
 	 gdbm-dev \
 	 libtool-dev \
-	 util-linux-libuuid-dev \
+	 util-linux-dev \
 	 libpam-dev \
 	 tiff-dev \
 	 jpeg-dev \

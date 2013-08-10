@@ -16,10 +16,19 @@ DEPENDS += " linux-maui"
 RDEPENDS_${PN} += "\
 	 kernel-image kernel-modules \
 	 util-linux \
+	 util-linux-agetty \
+	 util-linux-bash-completion \
+	 util-linux-uuidgen \
 	 util-linux-libuuid \
 	 util-linux-blkid \
 	 util-linux-mount \
-	 util-linux-agetty \
+	 util-linux-umount \
+	 util-linux-fsck \
+	 util-linux-reset \
+	 util-linux-lscpu \
+	 util-linux-mkfs \
+	 util-linux-partx \
+	 util-linux-sfdisk \
 	 e2fsprogs-e2fsck \
 	 e2fsprogs-mke2fs \
 	 e2fsprogs-tune2fs \

@@ -100,4 +100,5 @@ RDEPENDS_${PN} += "\
 	 popt-dev \
 	 llvm-dev \
 	 fontconfig-dev freetype-dev \
+	 vala \
 	 "

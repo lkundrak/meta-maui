@@ -14,11 +14,11 @@ SRC_URI += " file://config-generic \
 	     file://config-x86-generic \
 	     "
 
-LINUX_VERSION ?= "3.10.3"
+LINUX_VERSION ?= "3.11.8"
 LINUX_VERSION_EXTENSION ?= "-maui"
 
-# tag: v3.10.3
-SRCREV="81a464838675307c9fc7909fc840f248ed2caed5"
+# tag: v3.11.8
+SRCREV="02709ef60b70874443d375a91ea98f2e12aba0d7"
 
 #
 # WARNING: Don't forget to edit meta-maui/classes/maui-contents.bbclass

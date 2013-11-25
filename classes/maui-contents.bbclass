@@ -177,6 +177,7 @@ EOF
 	ln -s systemctl ${IMAGE_ROOTFS}/usr/bin/telinit
 
 	# Rename kernel files replacing bzImage- with vmlinuz-
+	rm -f ${IMAGE_ROOTFS}/boot/bzImage
 	for kernel in $(find ${IMAGE_ROOTFS}/boot -type f -name "bzImage-*"); do
 		newname=$(echo ${kernel} | sed -e 's,bzImage-,vmlinuz-,g')
 		mv "${kernel}" "${newname}"
